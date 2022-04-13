@@ -23,11 +23,11 @@ class AdminController {
         $consulta .= " usuarios.email, usuarios.telefono, servicios.nombre as servicio, servicios.precio  ";
         $consulta .= " FROM citas  ";
         $consulta .= " LEFT OUTER JOIN usuarios ";
-        $consulta .= " ON citas.usuarioId=usuarios.id  ";
-        $consulta .= " LEFT OUTER JOIN citasServicios ";
-        $consulta .= " ON citasServicios.citaId=citas.id ";
+        $consulta .= " ON citas.usuario_id=usuarios.id  ";
+        $consulta .= " LEFT OUTER JOIN citas_servicios ";
+        $consulta .= " ON citas_servicios.cita_id=citas.id ";
         $consulta .= " LEFT OUTER JOIN servicios ";
-        $consulta .= " ON servicios.id=citasServicios.servicioId ";
+        $consulta .= " ON servicios.id=citas_servicios.servicio_id ";
         $consulta .= " WHERE fecha =  '${fecha}' ";
 
         $citas = AdminCita::SQL($consulta);

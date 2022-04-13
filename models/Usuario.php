@@ -32,16 +32,16 @@ class Usuario extends ActiveRecord {
     // Mensajes de validación para la creación de una cuenta
     public function validarNuevaCuenta() {
         if(!$this->nombre) {
-            self::$alertas['error'][] = 'El Nombre es Obligatorio';
+            self::$alertas['error'][] = 'El nombre es obligatorio';
         }
         if(!$this->apellido) {
-            self::$alertas['error'][] = 'El Apellido es Obligatorio';
+            self::$alertas['error'][] = 'El apellido es obligatorio';
         }
         if(!$this->email) {
-            self::$alertas['error'][] = 'El Email es Obligatorio';
+            self::$alertas['error'][] = 'El Email es obligatorio';
         }
         if(!$this->password) {
-            self::$alertas['error'][] = 'El Password es Obligatorio';
+            self::$alertas['error'][] = 'El password es obligatorio';
         }
         if(strlen($this->password) < 6) {
             self::$alertas['error'][] = 'El password debe contener al menos 6 caracteres';
@@ -54,17 +54,18 @@ class Usuario extends ActiveRecord {
 
     public function validarLogin() {
         if(!$this->email) {
-            self::$alertas['error'][] = 'El email es Obligatorio';
+            self::$alertas['error'][] = 'El Email es obligatorio';
         }
         if(!$this->password) {
-            self::$alertas['error'][] = 'El Password es Obligatorio';
+            self::$alertas['error'][] = 'El Password es obligatorio';
         }
 
         return self::$alertas;
     }
+    //TODO: Validar el email con RegEx
     public function validarEmail() {
         if(!$this->email) {
-            self::$alertas['error'][] = 'El email es Obligatorio';
+            self::$alertas['error'][] = 'El Email es obligatorio';
         }
         return self::$alertas;
     }
@@ -105,7 +106,7 @@ class Usuario extends ActiveRecord {
         $resultado = password_verify($password, $this->password);
         
         if(!$resultado || !$this->confirmado) {
-            self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada';
+            self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada!';
         } else {
             return true;
         }

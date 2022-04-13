@@ -3,6 +3,7 @@
 
 .formulario {
     margin-top: 5rem;
+    padding: 0 2rem 0 2rem;
     width: 100%;
 }
 
@@ -12,6 +13,10 @@
     align-items: center;
     label {
         flex: 0 0 10rem;
+    }
+    label::after{
+        content: " * ";
+		color: red;
     }
     input {
         flex: 1;

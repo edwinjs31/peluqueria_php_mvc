@@ -38,7 +38,7 @@ class LoginController {
                         }
                     }
                 } else {
-                    Usuario::setAlerta('error', 'Usuario no encontrado');
+                    Usuario::setAlerta('error', 'Usuario o contraseña incorrectos');
                 }
 
             }
@@ -202,7 +202,7 @@ class LoginController {
         $alertas = Usuario::getAlertas();
 
         // Renderizar la vista
-        $router->render('auth/confirmar-cuenta', [
+        $router->render('auth/confirm', [
             'alertas' => $alertas
         ]);
     }
