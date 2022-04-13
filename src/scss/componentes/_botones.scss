@@ -5,6 +5,7 @@
     @include m.boton(v.$azul, v.$blanco);
     margin: auto;
     border-radius: 1rem;
+    margin-top: 4rem;
 }
 .boton-eliminar {
     @include m.boton(v.$rojo, v.$blanco);

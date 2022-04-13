@@ -14,5 +14,6 @@
         display: block;
         margin-bottom: calc(v.$separacion / 2);
         text-align: center;
+        padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
     }
 }
