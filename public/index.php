@@ -26,7 +26,7 @@ $router->get('/crear-cuenta', [LoginController::class, 'crear']);
 $router->post('/crear-cuenta', [LoginController::class, 'crear']);
 
 // Confirmar cuenta
-$router->get('/confirm', [LoginController::class, 'confirmar']);
+$router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 $router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 // AREA PRIVADA
