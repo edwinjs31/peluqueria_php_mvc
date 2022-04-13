@@ -1,22 +1,20 @@
 {
-    "name": "juandelatorre/app-salon_php_mvc_js_sass",
-    "description": "Proyecto PHP 8, MVC, SQL, SASS, Gulp",
-    "type": "project",
+    "name": "edwin/app-salon",
+    "description": "Proyecto PHP8, MVC, SQL, SASS, Gulp",
+    "type": "proyect",
     "autoload": {
         "psr-4": {
-            "MVC\\" : "./",
-            "Controllers\\" : "./controllers",
-            "Model\\" : "./models",
-            "Classes\\" : "./classes"
+            "MVC\\": "./",
+            "Controllers\\": "./controllers/",
+            "Models\\": "./models/"
         }
     },
+    
     "authors": [
         {
-            "name": "Juan Pablo De la torre Valdez",
-            "email": "ptorre@creativaweb.mx"
+            "name": "edwinjs",
+            "email": "edwinjs31@gmail.com"
         }
     ],
-    "require": {
-        "phpmailer/phpmailer": "^6.5"
-    }
+    "require": {}
 }
