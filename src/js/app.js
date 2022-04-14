@@ -294,7 +294,8 @@ function mostrarResumen() {
     // Formatear la fecha en español
     const fechaObj = new Date(fecha);
     const mes = fechaObj.getMonth();
-    const dia = fechaObj.getDate() + 2;
+    // const dia = fechaObj.getDate() + 2;
+    const dia = fechaObj.getDate();
     const year = fechaObj.getFullYear();
 
     const fechaUTC = new Date( Date.UTC(year, mes, dia));

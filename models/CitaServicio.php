@@ -7,13 +7,13 @@ class CitaServicio extends ActiveRecord {
     protected static $columnasDB = ['id', 'cita_id', 'servicio_id'];
 
     public $id;
-    public $citaId;
-    public $servicioId;
+    public $cita_id;
+    public $servicio_id;
     //TODO: Revisar campos de la tabla
     public function __construct($args = [])
     {
        $this->id = $args['id'] ?? null;
-       $this->citaId = $args['cita_id'] ?? '';
-       $this->servicioId = $args['servicio_id'] ?? ''; 
+       $this->cita_id = $args['cita_id'] ?? '';
+       $this->servicio_id = $args['servicio_id'] ?? ''; 
     }
 }
