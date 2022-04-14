@@ -22,7 +22,7 @@
 
         &:hover {
             cursor: pointer;
-            background-color: darken(v.$azul, 10%);
+             background-color: darken(v.$azul, 10%);
         }
         &.actual {
             background-color: v.$blanco;

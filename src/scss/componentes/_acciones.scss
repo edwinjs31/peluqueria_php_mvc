@@ -15,5 +15,10 @@
         margin-bottom: calc(v.$separacion / 2);
         text-align: center;
         padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
+        transition: color 300ms ease;
+
+        &:hover{
+            color: v.$azul;
+        }
     }
 }
