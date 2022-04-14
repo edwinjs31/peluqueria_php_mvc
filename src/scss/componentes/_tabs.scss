@@ -15,10 +15,11 @@
         padding: 1rem;
         display: block;
         width: 100%;
-        margin-bottom: 1rem;
+        margin: 1rem;
         text-transform: uppercase;
         font-weight: v.$bold;
         transition: background-color 300ms ease;
+        border-radius: 0.5rem;
 
         &:hover {
             cursor: pointer;

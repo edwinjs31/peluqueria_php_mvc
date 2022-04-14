@@ -4,7 +4,8 @@
 .contenedor-app {
     @include m.tablet {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        // grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 60%;
         min-height: 100vh;
     }
 
@@ -19,9 +20,9 @@
     }
 
     .app {
-        width: 95%;
+        width: 100%;
         margin: 0 auto;
-        padding: 3rem 0;
+        padding: 3rem 2rem;
         @include m.tablet {
             overflow: scroll;
         }
@@ -40,6 +41,11 @@
     .boton {
         @include m.boton(v.$negro, v.$blanco);
         margin: 0;
+        transition: color 300ms ease;
+        &:hover{
+            background-color: v.$negro;
+            color: v.$azul;
+        }
     }
 }
 

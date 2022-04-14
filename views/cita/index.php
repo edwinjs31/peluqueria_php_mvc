@@ -1,5 +1,5 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
-<p class="descripcion-pagina">Elige tus servicios y coloca tus datos</p>
+<p class="descripcion-pagina">Elige tus servicios y rellena los datos requeridos</p>
 
 <?php 
     include_once __DIR__ . '/../templates/barra.php';
@@ -14,12 +14,14 @@
 
     <div id="paso-1" class="seccion">
         <h2>Servicios</h2>
-        <p class="text-center">Elige tus servicios a continuación</p>
+        <p class="text-center">Servicios disponibles:</p>
         <div id="servicios" class="listado-servicios"></div>
     </div>
     <div id="paso-2" class="seccion">
-        <h2>Tus Datos y Cita</h2>
-        <p class="text-center">Coloca tus datos y fecha de tu cita</p>
+        <h2>Datos - Cita</h2>
+        <p class="text-center">Lunes a Viernes: 09:00 - 14:00  y  17:30 - 20:00</p>
+        <p class="text-center">Sabados: 09:00 - 14:00</p>
+        <h4 class="text-center descripcion-pagina">Completa con la fecha y hora de tu cita:</h4>
 
         <form class="formulario">
             <div class="campo">
