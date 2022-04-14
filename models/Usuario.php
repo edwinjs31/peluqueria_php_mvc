@@ -37,13 +37,16 @@ class Usuario extends ActiveRecord {
         if(!$this->apellido) {
             self::$alertas['error'][] = 'El apellido es obligatorio';
         }
+        if(strlen($this->telefono) > 9) {
+            self::$alertas['error'][] = 'El teléfono no es válido';
+        }
         if(!$this->email) {
             self::$alertas['error'][] = 'El Email es obligatorio';
         }
         if(!$this->password) {
             self::$alertas['error'][] = 'El password es obligatorio';
         }
-        if(strlen($this->password) < 6) {
+        if(strlen($this->password) >= 1 && strlen($this->password) < 6) {
             self::$alertas['error'][] = 'El password debe contener al menos 6 caracteres';
         }
 
@@ -74,8 +77,9 @@ class Usuario extends ActiveRecord {
         if(!$this->password) {
             self::$alertas['error'][] = 'El Password es obligatorio';
         }
-        if(strlen($this->password) < 6) {
+        if(strlen($this->password) >= 1 && strlen($this->password) < 6) {
             self::$alertas['error'][] = 'El Password debe tener al menos 6 caracteres';
+            
         }
 
         return self::$alertas;
@@ -106,7 +110,7 @@ class Usuario extends ActiveRecord {
         $resultado = password_verify($password, $this->password);
         
         if(!$resultado || !$this->confirmado) {
-            self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada!';
+            self::$alertas['error'][] = 'Usuario o Password incorrectos';
         } else {
             return true;
         }
