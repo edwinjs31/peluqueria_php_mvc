@@ -250,7 +250,7 @@ function mostrarResumen() {
     }
 
     if(Object.values(cita).includes('') || cita.servicios.length === 0 ) {
-        mostrarAlerta('Faltan datos de Servicios, Fecha u Hora', 'error', '.contenido-resumen', false);
+        mostrarAlerta('Elige un Servicio, Fecha y Hora', 'error', '.contenido-resumen', false);
 
         return;
     } 
@@ -322,7 +322,6 @@ function mostrarResumen() {
 }
 
 async function reservarCita() {
-    
     const { nombre, fecha, hora, servicios, id } = cita;
 
     const idServicios = servicios.map( servicio => servicio.id );
@@ -332,10 +331,10 @@ async function reservarCita() {
     
     datos.append('fecha', fecha);
     datos.append('hora', hora );
-    datos.append('usuarioId', id);
+    datos.append('usuario_id', id);
     datos.append('servicios', idServicios);
 
-    // console.log([...datos]);
+     console.log([...datos]);
 
     try {
         // Petición hacia la api
