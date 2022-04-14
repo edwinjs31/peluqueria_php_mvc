@@ -11,7 +11,7 @@ class Email
     public $nombre;
     public $token;
 
-    public function __construct($email, $nombre, $token)
+    public function __construct($nombre, $email, $token)
     {
         $this->email = $email;
         $this->nombre = $nombre;

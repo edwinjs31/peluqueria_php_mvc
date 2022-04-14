@@ -81,7 +81,7 @@ class LoginController {
                     // Alerta de exito
                     Usuario::setAlerta('exito', 'Revisa tu email');
                  } else {
-                     Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
+                     Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado');
                      
                  }
             } 
@@ -159,7 +159,7 @@ class LoginController {
                     $usuario->crearToken();
 
                     // Enviar el Email
-                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
                     $email->enviarConfirmacion();
 
                     // Crear el usuario

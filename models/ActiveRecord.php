@@ -75,10 +75,12 @@ class ActiveRecord {
         $atributos = $this->atributos();
         $sanitizado = [];
         foreach($atributos as $key => $value ) {
-            $sanitizado[$key] = self::$db->escape_string($value);//TODO: Rebisar sanitizar
+            $sanitizado[$key] = self::$db->real_escape_string($value);
+            //$sanitizado[$key] = self::$db->escape_string($value);//TODO: Rebisar sanitizar
         }
         return $sanitizado;
     }
+    
 
     // Sincroniza BD con Objetos en memoria
     public function sincronizar($args=[]) { 
