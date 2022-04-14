@@ -2,7 +2,7 @@
 
 .citas {
     list-style: none;
-    padding: 0;
+    padding: 2rem;
 
     li {
         padding: 1rem;
@@ -31,5 +31,6 @@
     .boton,
     .boton-eliminar {
         margin: 0;
+        border-radius: 1rem;
     }
 }
