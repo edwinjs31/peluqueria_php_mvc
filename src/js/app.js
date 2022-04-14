@@ -335,7 +335,7 @@ async function reservarCita() {
     datos.append('usuario_id', id);
     datos.append('servicios', idServicios);
 
-     console.log([...datos]);
+     //console.log([...datos]);
 
     try {
         // Petición hacia la api
@@ -346,7 +346,7 @@ async function reservarCita() {
         });
 
         const resultado = await respuesta.json();
-        console.log(resultado);
+        //console.log(resultado);
         
         if(resultado.resultado) {
             Swal.fire({
@@ -355,9 +355,10 @@ async function reservarCita() {
                 text: 'Tu cita fue creada correctamente',
                 button: 'OK'
             }).then( () => {
-                setTimeout(() => {
-                    window.location.reload();
-                }, 3000);
+                 window.location.reload();
+                // setTimeout(() => {
+                //     window.location.reload();
+                // }, 3000);
             })
         }
     } catch (error) {
