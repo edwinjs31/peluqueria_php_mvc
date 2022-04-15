@@ -25,7 +25,7 @@ class Servicio extends ActiveRecord {
         if(!$this->precio) {
             self::$alertas['error'][] = 'El Precio del Servicio es obligatorio!';
         }
-        if(!is_numeric($this->precio)) {
+        if(!is_numeric($this->precio) || $this->precio < 0) {
             self::$alertas['error'][] = 'El precio no es válido!';
         }
 

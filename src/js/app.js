@@ -136,7 +136,7 @@ function mostrarServicios(servicios) {
 
         const precioServicio = document.createElement('P');
         precioServicio.classList.add('precio-servicio');
-        precioServicio.textContent = `$${precio}`;
+        precioServicio.textContent = `${precio}€`;
 
         const servicioDiv = document.createElement('DIV');
         servicioDiv.classList.add('servicio');
@@ -203,7 +203,7 @@ function seleccionarHora() {
 
         const horaCita = e.target.value;
         const hora = horaCita.split(":")[0];
-        if(hora < 10 || hora > 18) {
+        if(hora < 9 || hora > 20) {
             e.target.value = '';
             mostrarAlerta('Hora No Válida', 'error', '.formulario');
         } else {
@@ -272,10 +272,10 @@ function mostrarResumen() {
         contenedorServicio.classList.add('contenedor-servicio');
 
         const textoServicio = document.createElement('P');
-        textoServicio.textContent = nombre;
+        textoServicio.textContent = "- "+nombre;
 
         const precioServicio = document.createElement('P');
-        precioServicio.innerHTML = `<span>Precio:</span> $${precio}`;
+        precioServicio.innerHTML = `<span>Precio: </span> ${precio}€`;
 
         contenedorServicio.appendChild(textoServicio);
         contenedorServicio.appendChild(precioServicio);

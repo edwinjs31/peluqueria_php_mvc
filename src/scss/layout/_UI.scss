@@ -37,7 +37,9 @@
         justify-content: space-between;
         align-items:center;
     }
-
+    span{
+        color: v.$azul;
+    }
     .boton {
         @include m.boton(v.$negro, v.$blanco);
         margin: 0;
