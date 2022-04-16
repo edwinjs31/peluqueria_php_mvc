@@ -15,8 +15,9 @@
         <div class="imagen">
             <div class="navBar">
                 <a class="active" href="/">Home</a>
-                <a href="#contact">Contacto</a>
-                <a href="#about">Sobre nosotros</a>
+                <a href="/contacto">Contacto</a>
+                <a href="/nosotros">Sobre nosotros</a>
+                <a href="/">Login</a>
             </div>
         </div>
         <!-- contenido y funcionalidad de la app -->

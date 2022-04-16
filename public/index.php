@@ -7,8 +7,14 @@ use Controllers\APIController;
 use Controllers\CitaController;
 use Controllers\LoginController;
 use Controllers\ServicioController;
+use Controllers\HomeController;
 use MVC\Router;
 $router = new Router();
+// Rutas de la aplicación
+
+// Contacto y sobre nosotros(navBar)
+$router->get('/contacto', [HomeController::class, 'contacto']);
+$router->get('/nosotros', [HomeController::class, 'nosotros']);
 
 // Iniciar Sesión
 $router->get('/', [LoginController::class, 'login']);
