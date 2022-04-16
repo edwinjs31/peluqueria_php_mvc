@@ -5,7 +5,7 @@
     @include m.tablet {
         display: grid;
         // grid-template-columns: repeat(2, 1fr);
-        grid-template-columns: 1fr 60%;
+        grid-template-columns: 1fr 55%;
         min-height: 100vh;
     }
 
@@ -17,7 +17,29 @@
         @include m.tablet {
             height: auto;
         }
+
     }
+    
+    .navBar {
+        background-color: #333;
+        overflow: hidden;
+        a {
+            float: left;
+            color: v.$blanco;
+            text-align: center;
+            padding: 1.3rem 1.5rem;
+            text-decoration: none;
+            font-size: 17px;
+            &:hover {
+                background-color: v.$gris;
+                color: v.$negro;
+              }
+              &.active {
+                background-color: v.$verde;
+                color: v.$blanco;
+              }
+          }
+      }
 
     .app {
         width: 100%;
