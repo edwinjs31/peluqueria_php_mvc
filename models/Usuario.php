@@ -37,7 +37,7 @@ class Usuario extends ActiveRecord {
         if(!$this->apellido) {
             self::$alertas['error'][] = 'El apellido es obligatorio';
         }
-        if(strlen($this->telefono) > 9) {
+        if(strlen($this->telefono) > 9 || strlen($this->telefono) < 9) {
             self::$alertas['error'][] = 'El teléfono no es válido';
         }
         if(!$this->email) {

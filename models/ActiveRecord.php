@@ -1,5 +1,8 @@
 <?php
 namespace Model;
+
+use mysqli;
+
 class ActiveRecord {
 
     // Base DE DATOS
@@ -74,9 +77,15 @@ class ActiveRecord {
     public function sanitizarAtributos() {
         $atributos = $this->atributos();
         $sanitizado = [];
+        
         foreach($atributos as $key => $value ) {
-            $sanitizado[$key] = self::$db->real_escape_string($value);
-            //$sanitizado[$key] = self::$db->escape_string($value);//TODO: Rebisar sanitizar
+            // Sanitizar los datos EDWIN
+            if(is_string($value)) {
+                $sanitizado[$key] = mysqli_real_escape_string(self::$db, $value);
+            } else {
+                $sanitizado[$key] = $value;
+            }
+           // $sanitizado[$key] = self::$db->escape_string($value);//TODO: Rebisar sanitizar
         }
         return $sanitizado;
     }
