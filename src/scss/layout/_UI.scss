@@ -10,7 +10,7 @@
     }
 
     .imagen {
-        height: 20rem;
+        height: 25rem;
         background-image: url(../img/1.jpg);
         background-size: cover;
         background-position: center center;
@@ -21,22 +21,27 @@
     }
     
     .navBar {
-        background-color: #333;
+        background-color:v.$azul;
         overflow: hidden;
+        font-weight: bold;
         a {
             float: left;
             color: v.$blanco;
             text-align: center;
-            padding: 1.3rem 1.5rem;
+            padding: 1rem 1.5rem;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 1.9rem;
             &:hover {
-                background-color: v.$gris;
-                color: v.$negro;
+                background-color: v.$blanco;
+                color: v.$azul;
               }
               &.active {
-                background-color: v.$verde;
-                color: v.$blanco;
+                background-color: v.$blanco;
+                color: v.$azul;
+              }
+              .fa-house{
+                font-size: 2rem;
+                
               }
           }
       }
