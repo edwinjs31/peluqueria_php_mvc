@@ -30,6 +30,6 @@
 </form>
 
 <div class="acciones">
-    <a href="/crear-cuenta">¿Aún no tienes cuenta? <span>Regístrate ahora</span></a>
-    <a href="/olvide">¿Olvidaste tu password?</a>
+    <span>¿No tienes una cuenta? <a href="/crear-cuenta">Regístrate</a></span>
+    <a href="/olvide">¿Has olvidado la contraseña?</a>
 </div>

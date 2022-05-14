@@ -14,11 +14,18 @@
     <div class="contenedor-app">
         <!-- imagen de fondo y el navBar -->
         <div class="imagen">
-            <div class="navBar">
+            <nav class="navBar">
+                <ul>
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="/nosotros">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <!-- <div class="navBar">
                 <a class="active" href="/"><i class="fa-solid fa-house"></i></a>
                 <a href="/contacto">Contacto</a>
-                <a href="/nosotros">Sobre nosotros</a>
-            </div>
+                <a href="/contacto">Contacto</a>
+            </div> -->
         </div>
         <!-- contenido y funcionalidad de la app -->
         <div class="app">

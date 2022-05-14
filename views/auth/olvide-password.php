@@ -1,5 +1,5 @@
-<h1 class="nombre-pagina">Olvide Password</h1>
-<p class="descripcion-pagina">Reestablece tu password escribiendo tu email a continuación</p>
+<h1 class="nombre-pagina">Olvidé Password</h1>
+<p class="descripcion-pagina">Ingresa tu email para reestablecer tu password:</p>
 
 <?php 
     include_once __DIR__ . "/../templates/alertas.php";
@@ -20,6 +20,6 @@
 </form>
 
 <div class="acciones">
-    <a href="/">¿Ya tienes una cuenta? Inicia Sesión</a>
-    <a href="/crear-cuenta">¿Aún no tienes una cuenta? Crear Una</a>
+    <a href="/">Volver al inicio de sesión</a>
+    <a href="/crear-cuenta">Crear cuanta nueva</a>
 </div>

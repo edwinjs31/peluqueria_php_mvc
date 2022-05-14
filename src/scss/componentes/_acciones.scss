@@ -2,23 +2,30 @@
 @use 'base/mixins' as m;
 
 .acciones {
-    margin-top: v.$separacion;
+    margin: 4rem 7rem 2rem 7rem;
+    padding: 1rem 3rem;
+    
     @include m.tablet {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+    span{
+        padding-top: 0;
+    }
 
     a {
-        color: v.$blanco;
+        font-style: italic;
+        color: v.$azul;
         display: block;
         margin-bottom: calc(v.$separacion / 2);
         text-align: center;
-        padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
+        // padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
         transition: color 300ms ease;
 
         &:hover{
-            color: v.$azul;
+        color: v.$blanco;
+            
         }
     }
 }
