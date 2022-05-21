@@ -16,7 +16,7 @@
 
     a {
         font-style: italic;
-        color: v.$azul;
+        color: v.$blanco;
         display: block;
         margin-bottom: calc(v.$separacion / 2);
         text-align: center;
@@ -24,7 +24,8 @@
         transition: color 300ms ease;
 
         &:hover{
-        color: v.$blanco;
+        background: v.$blanco;
+        color: v.$azul;
             
         }
     }

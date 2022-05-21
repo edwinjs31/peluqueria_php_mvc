@@ -10,6 +10,9 @@ class LoginController
 {
     public static function login(Router $router)
     {
+        session_start();
+        isLogged();
+        
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
