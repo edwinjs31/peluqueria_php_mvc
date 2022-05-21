@@ -5,15 +5,20 @@ namespace Controllers;
 use Model\Cita;
 use Model\CitaServicio;
 use Model\Servicio;
+use Classes\Email;
+use Model\Usuario;
 
-class APIController {
-    public static function index() {
+class APIController
+{
+    public static function index()
+    {
         $servicios = Servicio::all();
         echo json_encode($servicios);
     }
 
-    public static function guardar() {
-        
+    public static function guardar()
+    {
+
         // Almacena la Cita y devuelve el ID
         $cita = new Cita($_POST);
         $resultado = $cita->guardar();
@@ -24,7 +29,7 @@ class APIController {
 
         // Almacena los Servicios con el ID de la Cita
         $idServicios = explode(",", $_POST['servicios']);
-        foreach($idServicios as $idServicio) {
+        foreach ($idServicios as $idServicio) {
             $args = [
                 'cita_id' => $id,
                 'servicio_id' => $idServicio
@@ -34,11 +39,22 @@ class APIController {
         }
 
         echo json_encode(['resultado' => $resultado]);
+        
+          // Enviar el Email
+          $usuario=Usuario::find($cita->usuario_id);
+          $body = [
+            'nombre' => $usuario->nombre,
+            'fecha' => $cita->fecha,
+            'hora' => $cita->hora,
+        ];
+        $email = new Email($usuario->email, $body);
+        $email->enviarConfirmacionCita();
     }
 
-    public static function eliminar() {
-        
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    public static function eliminar()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $cita = Cita::find($id);
             $cita->eliminar();

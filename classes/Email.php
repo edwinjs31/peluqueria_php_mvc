@@ -8,13 +8,12 @@ class Email
 {
 
     public $email;
-    public $body=[];
+    public $body = [];
 
-    public function __construct( $email, $body)
+    public function __construct($email, $body)
     {
         $this->email = $email;
         $this->body = $body;
-        
     }
 
     public function enviarConfirmacion()
@@ -83,7 +82,9 @@ class Email
     }
     public function enviarConfirmacionCita()
     {
-
+        $nombre = $this->body['nombre'];
+        $fecha = $this->body['fecha'];
+        $hora = $this->body['hora'];
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -95,16 +96,17 @@ class Email
 
         $mail->setFrom('cuentas@appsalon.com');
         $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
-        $mail->Subject = 'Reestablece tu password';
+        $mail->Subject = 'Confirmacion de cita';
 
         // Set HTML
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $this->token . "'>Reestablecer contraseña</a>";
-        $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
+        $contenido .= "<p><strong>Hola " . $nombre .  "</strong>, tu cita para AppSalon está programada para el dia:</p>";
+        $contenido .= "<p><strong>" . $fecha . "</strong> a las <strong>" . $hora . "</strong> horas.</p>";
+        $contenido .= "<p>Si necesitas cambiar tu cita, llamanos al 90456897. Por favor, ten en cuenta nuestras políticas de cancelación en <a href='http://appSalon.com'>appSalon.com</a></p>";
+        $contenido .= "<p>Gracias. ¡Esperamos verte pronto!</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
 

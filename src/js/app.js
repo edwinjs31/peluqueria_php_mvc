@@ -346,7 +346,7 @@ async function reservarCita() {
       Swal.fire({
         icon: "success",
         title: "Cita Creada",
-        text: "Tu cita fue creada correctamente",
+        text: "Tu cita fue creada correctamente, le enviaremos un correo de confirmación",
         button: "OK",
       }).then(() => {
         window.location.reload();
