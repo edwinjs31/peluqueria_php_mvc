@@ -8,19 +8,19 @@ class Email
 {
 
     public $email;
-    public $nombre;
-    public $token;
+    public $body=[];
 
-    public function __construct($nombre, $email, $token)
+    public function __construct( $email, $body)
     {
         $this->email = $email;
-        $this->nombre = $nombre;
-        $this->token = $token;
+        $this->body = $body;
+        
     }
 
     public function enviarConfirmacion()
     {
-
+        $nombre = $this->body['nombre'];
+        $token = $this->body['token'];
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -39,8 +39,8 @@ class Email
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong>, gracias por registrarte en AppSalón, para confirmar tu cuenta pincha en el siguiente enlace:</p>";
-        $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p><strong>Hola " . $nombre .  "</strong>, gracias por registrarte en AppSalón, para confirmar tu cuenta pincha en el siguiente enlace:</p>";
+        $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $token . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Te esperamos en nuestra web!!</p>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
@@ -52,7 +52,8 @@ class Email
 
     public function enviarInstrucciones()
     {
-
+        $nombre = $this->body['nombre'];
+        $token = $this->body['token'];
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -71,8 +72,8 @@ class Email
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $this->token . "'>Reestablecer contraseña</a>";
+        $contenido .= "<p><strong>Hola " .  $nombre .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $token . "'>Reestablecer contraseña</a>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;

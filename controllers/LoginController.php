@@ -12,7 +12,7 @@ class LoginController
     {
         session_start();
         isLogged();
-        
+
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -81,7 +81,11 @@ class LoginController
                     $usuario->guardar();
 
                     //  Enviar el email
-                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $body = [
+                        'nombre' => $usuario->nombre,
+                        'token' => $usuario->token
+                    ];
+                    $email = new Email($usuario->email, $body);
                     $email->enviarInstrucciones();
 
                     // Alerta de exito
@@ -166,7 +170,11 @@ class LoginController
                     $usuario->crearToken();
 
                     // Enviar el Email
-                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $body = [
+                        'nombre' => $usuario->nombre,
+                        'token' => $usuario->token
+                    ];
+                    $email = new Email($usuario->email, $body);
                     $email->enviarConfirmacion();
 
                     // Crear el usuario
