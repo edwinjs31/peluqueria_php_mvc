@@ -19,36 +19,44 @@ class APIController
     public static function guardar()
     {
 
-        // Almacena la Cita y devuelve el ID
         $cita = new Cita($_POST);
-        $resultado = $cita->guardar();
+        $usuarioIdBD = Cita::SQL("SELECT usuario_id FROM citas WHERE usuario_id = '{$cita->usuario_id}' LIMIT 1");
 
-        $id = $resultado['id'];
+        if (empty($usuarioIdBD)) {
 
-        // Almacena la Cita y el Servicio
+            // Almacena la Cita y devuelve el ID
+            $resultado = $cita->guardar();
 
-        // Almacena los Servicios con el ID de la Cita
-        $idServicios = explode(",", $_POST['servicios']);
-        foreach ($idServicios as $idServicio) {
-            $args = [
-                'cita_id' => $id,
-                'servicio_id' => $idServicio
+            $id = $resultado['id'];
+
+
+            // Almacena la Cita y el Servicio
+
+            // Almacena los Servicios con el ID de la Cita
+            $idServicios = explode(",", $_POST['servicios']);
+            foreach ($idServicios as $idServicio) {
+                $args = [
+                    'cita_id' => $id,
+                    'servicio_id' => $idServicio
+                ];
+                $citaServicio = new CitaServicio($args);
+                $citaServicio->guardar();
+            }
+
+            echo json_encode(['resultado' => $resultado]);
+
+            // Enviar el Email
+            $usuario = Usuario::find($cita->usuario_id);
+            $body = [
+                'nombre' => $usuario->nombre,
+                'fecha' => $cita->fecha,
+                'hora' => $cita->hora,
             ];
-            $citaServicio = new CitaServicio($args);
-            $citaServicio->guardar();
+            $email = new Email($usuario->email, $body);
+            $email->enviarConfirmacionCita();
+        }else{
+            echo json_encode(['resultado' => 'Ya existe una cita para este usuario']);
         }
-
-        echo json_encode(['resultado' => $resultado]);
-        
-          // Enviar el Email
-          $usuario=Usuario::find($cita->usuario_id);
-          $body = [
-            'nombre' => $usuario->nombre,
-            'fecha' => $cita->fecha,
-            'hora' => $cita->hora,
-        ];
-        $email = new Email($usuario->email, $body);
-        $email->enviarConfirmacionCita();
     }
 
     public static function eliminar()
