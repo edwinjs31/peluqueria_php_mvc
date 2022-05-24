@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- <script src="lib/sweet-alert.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="lib/sweet-alert.css"> -->
 </head>
 
 <body>
@@ -32,11 +34,42 @@
             <?php echo $contenido; ?>
         </div>
     </div>
-
+    <!-- form.submit(); -->
     <?php
     echo $script ?? '';
     ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btn-eliminar-cita').click(function(e) {
+                e.preventDefault();
+                var form = $(this).parents('form');
+                Swal.fire({
+                    title: '¿Estás seguro de eliminar tu cita?',
+                    text: "¡No podrás revertir!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Eliminar',
+                }).then((result) => {
+                    if (result.value) {
+                        form.submit();
 
+                    }
+                }).then(function() {
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Tu cita ha sido eliminada.',
+                        'success',
+                        
+
+                    )
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

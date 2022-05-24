@@ -28,6 +28,7 @@
     "terser": "^5.3.8"
   },
   "dependencies": {
+    "postcss": "^8.1.0",
     "sweetalert2": "^11.4.15"
   }
 }

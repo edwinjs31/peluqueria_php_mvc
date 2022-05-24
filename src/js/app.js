@@ -356,7 +356,8 @@ async function reservarCita() {
                 icon: 'success',
                 title: 'Cita Creada',
                 text: "La cita se ha creado correctamente, puedes verla en 'Mis Citas' o en tu correo electronico",
-                button: 'OK',
+                showConfirmButton: false,
+                timer: 2500,
             }).then(() => {
                 window.location.reload();
                 // setTimeout(() => {

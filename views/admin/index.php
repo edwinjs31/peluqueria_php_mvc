@@ -60,7 +60,7 @@ if (count($citas) === 0) {
 
                     <form action="/api/eliminar" method="POST">
                         <input type="hidden" name="id" value="<?php echo $cita->id; ?>">
-                        <input type="submit" class="boton-eliminar" value="Eliminar">
+                        <input type="submit" id="btn-eliminar-cita" class="boton-eliminar" value="Eliminar">
                     </form>
 
             <?php }
