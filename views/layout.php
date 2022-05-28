@@ -39,7 +39,8 @@
     echo $script ?? '';
     ?>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='build/js/alertasUI.js'></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#btn-eliminar-cita').click(function(e) {
@@ -60,7 +61,7 @@
                 })
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
