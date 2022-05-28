@@ -16,7 +16,7 @@ include_once __DIR__ . '/../templates/barra.php';
 
                 <form action="/servicios/eliminar" method="POST">
                     <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
-                    <input type="submit" id="btn-aliminar-servicio" value="Eliminar" class="boton-eliminar">
+                    <input type="submit" value="Eliminar" class="boton-eliminar">
                 </form>
             </div>
         </li>
