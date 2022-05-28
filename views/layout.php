@@ -46,8 +46,7 @@
                 e.preventDefault();
                 var form = $(this).parents('form');
                 Swal.fire({
-                    title: '¿Estás seguro de eliminar tu cita?',
-                    text: "¡No podrás revertir!",
+                    title: 'Se borrará la cita, está seguro?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -58,15 +57,7 @@
                         form.submit();
 
                     }
-                }).then(function() {
-                    Swal.fire(
-                        '¡Eliminado!',
-                        'Tu cita ha sido eliminada.',
-                        'success',
-                        
-
-                    )
-                });
+                })
             });
         });
     </script>
