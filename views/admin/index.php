@@ -40,7 +40,7 @@ if (count($citas) === 0) {
                 <?php
                 $idCita = $cita->id;
             } // Fin de IF 
-            
+
             $total += $cita->precio;
             $servicio = $cita->servicio;
 
@@ -60,7 +60,7 @@ if (count($citas) === 0) {
 
                     <form action="/api/eliminar" method="POST">
                         <input type="hidden" name="id" value="<?php echo $cita->id; ?>">
-                        <input type="submit" class="boton-eliminar" value="Eliminar">
+                        <input type="submit" id="btn-eliminar-cita" class="boton-eliminar" value="Eliminar">
                     </form>
 
             <?php }
@@ -70,5 +70,9 @@ if (count($citas) === 0) {
 </div>
 
 <?php
-$script = "<script src='build/js/buscador.js'></script>"
+$script = "
+<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script src='build/js/alertasUI.js'></script>
+<script src='build/js/buscador.js'></script>
+";
 ?>

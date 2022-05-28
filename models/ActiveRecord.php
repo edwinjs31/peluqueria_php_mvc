@@ -85,7 +85,7 @@ class ActiveRecord {
             } else {
                 $sanitizado[$key] = $value;
             }
-           // $sanitizado[$key] = self::$db->escape_string($value);//TODO: Rebisar sanitizar
+           // $sanitizado[$key] = self::$db->escape_string($value);
         }
         return $sanitizado;
     }
@@ -120,6 +120,13 @@ class ActiveRecord {
         return $resultado;
     }
 
+    // Busca un id y la devuelve si existe
+    public static function getIdIfExist($columna, $valor) {
+        $query = "SELECT = ${columna} FROM " . static::$tabla  ." WHERE ${columna} = ${valor} LIMIT 1";
+
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
     // Busca un registro por su id
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";

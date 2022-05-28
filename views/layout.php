@@ -36,7 +36,6 @@
     <?php
     echo $script ?? '';
     ?>
-
 </body>
 
 </html>
