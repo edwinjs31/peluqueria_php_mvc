@@ -14,11 +14,34 @@
     <div class="contenedor-app">
         <!-- imagen de fondo y el navBar -->
         <div class="imagen">
-            <nav class="navBar">
-                <ul>
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
-                    <li><a href="/nosotros">Sobre nosotros</a></li>
+            <nav class="nav">
+                <input class="nav__trigger-input" type="checkbox" id="trigger" aria-label="open the navigation" />
+                <label class="nav__trigger-finger" for="trigger">
+                    <span></span>
+                </label>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">
+                            <span class="nav__text">
+                            <i class="fa-solid fa-house"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="/nosotros" class="nav__link">
+                            <span class="nav__text">
+                                Nosotros
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/contacto" class="nav__link">
+                            <span class="nav__text">
+                                Contacto
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- <div class="navBar">
