@@ -354,8 +354,8 @@ async function reservarCita() {
         if (resultado.resultado.id) {
             Swal.fire({
                 icon: 'success',
-                title: 'Cita Creada',
-                text: "La cita se ha creado correctamente, puedes verla en 'Mis Citas' o en tu correo electronico",
+                title: 'Cita creada correctamente',
+                text: "La cita se ha creado correctamente, te enviaremos un correo de confirmación",
                 showConfirmButton: false,
                 timer: 2500,
             }).then(() => {
@@ -369,7 +369,6 @@ async function reservarCita() {
                 icon: 'info',
                 title: 'Cita Existente',
                 text: resultado.resultado,
-                button: 'OK',
             }).then(() => {
                 window.location.reload();
             });

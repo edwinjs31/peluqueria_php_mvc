@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-    const btnEliminarCita = document.getElementById('btn-eliminar-cita');
-    const btnEliminarServicio = document.getElementById('btn-aliminar-servicio');
+    iniciar();
+});
 
+function iniciar() {
+    alertaEliminarCita();
+    alertaEliminarServicio();
+}
+
+function alertaEliminarCita() {
+    const btnEliminarCita = document.getElementById('btn-eliminar-cita');
     if (btnEliminarCita) {
         btnEliminarCita.addEventListener('click', function (e) {
             e.preventDefault();
@@ -12,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
             alertaModal(title, icon, form);
         });
     }
+}
+
+function alertaEliminarServicio() {
+    const btnEliminarServicio = document.getElementById('btn-aliminar-servicio');
 
     if (btnEliminarServicio) {
         btnEliminarServicio.addEventListener('click', function (e) {
@@ -22,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alertaModal(title, icon, form);
         });
     }
-});
+}
 
 function alertaModal(titulo, icono, formulario) {
     Swal.fire({
@@ -33,13 +43,9 @@ function alertaModal(titulo, icono, formulario) {
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
         confirmButtonText: 'Eliminar',
-    })
-        .then((result) => {
-            if (result.value) {
-                formulario.submit();
-            }
-        })
-        .then(() => {
-            Swal.fire('Eliminado!', 'El registro ha sido eliminado.', 'success');
-        });
+    }).then((result) => {
+        if (result.value) {
+            formulario.submit();
+        }
+    });
 }
