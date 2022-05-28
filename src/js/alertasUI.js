@@ -91,5 +91,5 @@ function alertaModal(formulario, titulo, texto) {
     Swal.showLoading();
     setTimeout(function () {
         formulario.submit();
-    }, 1000);
+    }, 2000);
 }
