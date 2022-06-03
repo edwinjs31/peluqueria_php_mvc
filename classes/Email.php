@@ -113,4 +113,40 @@ class Email
         //Enviar el mail
         $mail->send();
     }
+    public function enviarFormularioContacto()
+    {
+        $nombre = $this->body['nombre'];
+        $email = $this->body['email'];
+        $asunto= $this->body['asunto'];
+        $mensaje = $this->body['mensaje'];
+        // create a new object
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Port = 2525;
+        $mail->Username = '4f4b5e29cde87b';
+        $mail->Password = '49f982815fa101';
+
+        $mail->setFrom($email);
+        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+        $mail->Subject = 'Formulario de contacto';
+
+        // Set HTML
+        $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+
+        $contenido = '<html>';
+        $contenido .= "<p><strong>De: " . $nombre .  "</strong>, <a href='mailto: $email'>$email</a></p>";
+        $contenido .= "<p><strong>Asunto:</strong> $asunto</p>";
+        $contenido .= "<p><strong>Cuerpo del mensaje:</strong></p>";
+        $contenido .= "<p>$mensaje</p>";
+        $contenido .= "<p>Este mensaje se ha enviado desde el formulario de contacto de AppSalon.</p>";
+        $contenido .= '</html>';
+        $mail->Body = $contenido;
+
+        //Enviar el mail
+        $mail->send();
+        // $respuesta='Mensaje enviado';
+    }
 }

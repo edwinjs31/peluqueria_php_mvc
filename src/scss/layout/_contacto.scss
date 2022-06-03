@@ -2,9 +2,13 @@
 @use 'base/mixins' as m;
 $bk1: 700px;
 
+.nombre-pagina{
+    margin: 0;
+}
 textarea {
     width: 100%;
     resize: none;
+    border-radius: 1rem;
 }
 
 

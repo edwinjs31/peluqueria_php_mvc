@@ -13,8 +13,9 @@ $router = new Router();
 // Rutas de la aplicación
 
 // Contacto y sobre nosotros(navBar)
-$router->get('/contacto', [HomeController::class, 'contacto']);
 $router->get('/nosotros', [HomeController::class, 'nosotros']);
+$router->get('/formulario-contacto', [HomeController::class, 'contacto']);
+$router->post('/formulario-contacto', [HomeController::class, 'contacto']);
 
 // Iniciar Sesión
 $router->get('/', [LoginController::class, 'login']);

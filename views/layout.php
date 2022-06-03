@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="/contacto" class="nav__link">
+                        <a href="/formulario-contacto" class="nav__link">
                             <span class="nav__text">
                                 Contacto
                             </span>
@@ -44,11 +44,6 @@
                     </li>
                 </ul>
             </nav>
-            <!-- <div class="navBar">
-                <a class="active" href="/"><i class="fa-solid fa-house"></i></a>
-                <a href="/contacto">Contacto</a>
-                <a href="/contacto">Contacto</a>
-            </div> -->
         </div>
         <!-- contenido y funcionalidad de la app -->
         <div class="app">
