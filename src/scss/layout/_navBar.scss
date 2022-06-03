@@ -130,7 +130,7 @@ $bezier: cubic-bezier(0.75, 0, 0.25, 1);
         right: 0;
         z-index: -1;
         background: v.$azul;
-        font-size: 5rem;
+        font-size: 4rem;
         margin-right: 55%;
         padding: 5rem 20rem;
         transform: translate(-70vw) rotate(45deg);
@@ -181,9 +181,10 @@ $bezier: cubic-bezier(0.75, 0, 0.25, 1);
         background-repeat: no-repeat;
         background-size: 0% 2px;
         transition: background-size .3s;
+        font-weight: bold;
         &:hover , &:focus {
-            // color: v.$negro;
-            // font-weight: bold;
+             color: v.$negro;
+             font-weight: bold;
             background-size: 100% 2px;
         }
     }
