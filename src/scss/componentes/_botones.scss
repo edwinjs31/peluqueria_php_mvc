@@ -10,6 +10,9 @@
         background: v.$blanco;
         color: v.$azul;
     }
+    @include m.telefono {
+        margin-bottom: 2rem;
+    }
 }
 
 .boton-eliminar {

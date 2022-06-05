@@ -4,14 +4,25 @@
 .acciones {
     margin: 4rem 7rem 2rem 7rem;
     padding: 1rem 3rem;
-    
+
+    @include m.telefono {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
     @include m.tablet {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0;
     }
-    span{
+
+    span {
         padding-top: 0;
+        @include m.telefono {
+            text-align: center;
+        }
     }
 
     a {
@@ -22,10 +33,13 @@
         text-align: center;
         // padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
         transition: color 300ms ease;
+        color: v.$azul;
 
-        &:hover{
-        color: v.$fucsia;
-            
+        &:hover {
+            color: v.$fucsia;
+
         }
+
     }
+
 }

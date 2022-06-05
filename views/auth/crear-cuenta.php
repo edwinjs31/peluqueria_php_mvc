@@ -1,5 +1,5 @@
 <h1 class="nombre-pagina">Crear Cuenta</h1>
-<p class="descripcion-pagina">Todos los campos son obligatorios (*):</p>
+<p class="descripcion-pagina">Campos obligatorios (*):</p>
 
 <?php
 include_once __DIR__ . "/../templates/alertas.php";

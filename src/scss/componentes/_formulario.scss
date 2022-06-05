@@ -4,32 +4,51 @@
 .formulario {
     // margin-top: 3rem;
     margin: 3rem auto;
-    padding:auto;
-    width: 70%;
+    // padding: auto;
+    width: 100%;
+
+    @include m.telefono {
+        margin-bottom: 0;
+    }
+    @include m.tablet {
+         padding: 0 4rem;
+    }
+    @include m.desktop {
+        padding: 0 5rem;
+    }
 }
 
 .campo {
     display: flex;
     margin-bottom: 2rem;
     align-items: center;
+
     label {
         flex: 0 0 10rem;
     }
-    label::after{
+
+    label::after {
         content: " * ";
-		color: red;
+        color: red;
     }
+
     input {
         flex: 1;
         border: none;
         padding: calc(v.$separacion / 5);
         border-radius: 1rem;
 
+        @include m.telefono {
+            width: 70%;
+           
+        }
+    
+
         &:disabled {
             background-color: lighten(v.$negro, 30%);
             color: v.$blanco;
             cursor: not-allowed;
         }
-        
+
     }
 }

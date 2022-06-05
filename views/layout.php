@@ -8,12 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src='../build/js/imagenRandon.js'></script>
 </head>
 
 <body>
     <div class="contenedor-app">
         <!-- imagen de fondo y el navBar -->
-        <div class="imagen">
+        <div id="fondo-imagen" class="imagen">
             <nav class="nav">
                 <input class="nav__trigger-input" type="checkbox" id="trigger" aria-label="open the navigation" />
                 <label class="nav__trigger-finger" for="trigger">
@@ -23,7 +24,7 @@
                     <li class="nav__item">
                         <a href="/" class="nav__link">
                             <span class="nav__text">
-                            <i class="fa-solid fa-house"></i>
+                                <i class="fa-solid fa-house"></i>
                             </span>
                         </a>
                     </li>
