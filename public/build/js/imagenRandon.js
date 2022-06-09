@@ -1,0 +1,1 @@
+function cambiarImagen(){var e=document.getElementById("fondo-imagen");e.style.backgroundImage="url(../build/img/imagen"+(Math.floor(9*Math.random())+1)+".jpg)",e.style.backgroundSize="cover",e.style.backgroundPosition="center center"}document.addEventListener("DOMContentLoaded",(function(e){cambiarImagen()}));

@@ -1,22 +1,33 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .alerta {
     padding: calc(v.$separacion / 6);
     color: v.$rojo;
-    width: 70%;
+    // width: 87%;
     display: block;
-    margin:2rem auto;
+    margin: 2rem auto;
     text-align: center;
-    // font-weight: v.$bold;
     font-style: italic;
     border-radius: 0.5rem;
-    // text-transform: uppercase;
+    // border: 2px solid v.$rojo;
 
     &.error {
         background-color: v.$rosa;
     }
+
     &.exito {
         background-color: v.$verde;
         color: v.$blanco;
+    }
+
+    @include m.telefono {
+        width: 100%;
+    }
+    @include m.tablet {
+        width: 90%;
+    }
+    @include m.desktop {
+        width: 87%;
     }
 }

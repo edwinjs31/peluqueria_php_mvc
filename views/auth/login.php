@@ -31,5 +31,5 @@
 
 <div class="acciones">
     <span>¿No tienes una cuenta? <a href="/crear-cuenta">Regístrate</a></span>
-    <a href="/olvide">¿Has olvidado la contraseña?</a>
+    <a class="olvide" href="/olvide">¿Has olvidado la contraseña?</a>
 </div>

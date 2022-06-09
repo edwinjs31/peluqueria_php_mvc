@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
 h1, h2, h3 {
     font-family: v.$fuente_principal;
@@ -25,8 +26,12 @@ p {
 
 .nombre-pagina {
     text-align: center;
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
     font-weight: v.$bold;
+    
+    @include m.telefono {
+        font-size: 3rem;
+    }
 }
 .descripcion-pagina {
     text-align: center;
