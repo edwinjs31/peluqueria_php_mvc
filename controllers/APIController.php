@@ -18,9 +18,9 @@ class APIController
 
     public static function guardar()
     {
-        define('CONFIRMAR_CITA', 3);
         $cita = new Cita($_POST);
         $usuarioIdBD = Cita::SQL("SELECT usuario_id FROM citas WHERE usuario_id = '{$cita->usuario_id}' LIMIT 1");
+        define('CONFIRMAR_CITA', 3);
 
         if (empty($usuarioIdBD)) {
 
@@ -45,18 +45,17 @@ class APIController
 
             echo json_encode(['resultado' => $resultado]);
 
-            // Enviar el Email
+            
+            // Enviar el Email de Confirmación de Cita
             $usuario = Usuario::find($cita->usuario_id);
             $email = new Email();
-            $subject = "Confirmación cita";
+           $subject = "Confirmación cita";
             $body = [
                 'nombre' => $usuario->nombre,
                 'fecha' => $cita->fecha,
                 'hora' => $cita->hora,
             ];
-            $email->send($usuario->email, $subject, $body, CONFIRMAR_CITA);//TODO: debugear esto,debuelve que no se ha generado cita
-            // $email = new Email($usuario->email, $body);
-            // $email->enviarConfirmacionCita();
+            $email->send($usuario->email, $subject, $body, CONFIRMAR_CITA);
         } else {
             echo json_encode(['resultado' => 'Ya existe una cita para este usuario']);
         }

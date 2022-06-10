@@ -52,7 +52,6 @@ class Email
             $this->mail->Subject = $subject;
             $this->mail->Body = $bodyMessage;
             $this->mail->send();
-            echo 'El mensaje ha sido enviado correctamente, gracias por contactarnos'; //TODO: no debe mostrarse en todas las situaciones
         } catch (Exception $e) {
             echo "Error al enviar el email: {$this->mail->ErrorInfo}";
         }
