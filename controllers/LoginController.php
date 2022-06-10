@@ -64,7 +64,8 @@ class LoginController
 
     public static function olvide(Router $router)
     {
-
+        //es una constante
+        define('REESTABLECER_PASSWORD', 2);
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -81,12 +82,13 @@ class LoginController
                     $usuario->guardar();
 
                     //  Enviar el email
+                    $email = new Email();
+                    $subject = 'Reestablece tu password';
                     $body = [
                         'nombre' => $usuario->nombre,
                         'token' => $usuario->token
                     ];
-                    $email = new Email($usuario->email, $body);
-                    $email->enviarInstrucciones();
+                    $email->send($usuario->email, $subject, $body, REESTABLECER_PASSWORD);
 
                     // Alerta de exito
                     Usuario::setAlerta('exito', 'Revisa tu email, te hemos enviado las instrucciones para reestablecer tu contraseña');
@@ -147,6 +149,8 @@ class LoginController
 
     public static function crear(Router $router)
     {
+        //es una constante
+        define('CONFIRMAR_CUENTA', 1);
         $usuario = new Usuario;
 
         // Alertas vacias
@@ -170,12 +174,13 @@ class LoginController
                     $usuario->crearToken();
 
                     // Enviar el Email
+                    $email = new Email();
+                    $subject='Confirmación de cuenta';
                     $body = [
                         'nombre' => $usuario->nombre,
                         'token' => $usuario->token
                     ];
-                    $email = new Email($usuario->email, $body);
-                    $email->enviarConfirmacion();
+                    $email->send($usuario->email, $subject, $body, CONFIRMAR_CUENTA);
 
                     // Crear el usuario
                     $resultado = $usuario->guardar();

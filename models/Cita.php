@@ -11,7 +11,6 @@ class Cita extends ActiveRecord {
     public $fecha;
     public $hora;
     public $usuario_id;
-    //TODO: Revisar campos de la tabla
     public function __construct($args = [])
     {
         $this->id = $args['id'] ?? null;

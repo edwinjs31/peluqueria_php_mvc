@@ -9,7 +9,6 @@ class CitaServicio extends ActiveRecord {
     public $id;
     public $cita_id;
     public $servicio_id;
-    //TODO: Revisar campos de la tabla
     public function __construct($args = [])
     {
        $this->id = $args['id'] ?? null;

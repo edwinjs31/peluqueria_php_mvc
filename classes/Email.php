@@ -3,150 +3,107 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 
 class Email
 {
 
-    public $email;
-    public $body = [];
+    private $mail;
 
-    public function __construct($email, $body)
+    public function __construct()
     {
-        $this->email = $email;
-        $this->body = $body;
+        $this->mail = new PHPMailer(true);
+        $this->mail->isSMTP();
+        $this->mail->Host = $_ENV['MAIL_HOST'];
+        $this->mail->SMTPAuth = true;
+        $this->mail->Username = $_ENV['MAIL_USERNAME'];
+        $this->mail->Password = $_ENV['MAIL_PASSWORD'];
+        $this->mail->SMTPSecure = 'tls';
+        $this->mail->Port = 587;
+        $this->mail->setFrom($_ENV['MAIL_DEFAULT_FROM'], 'Blue Velvet Peluquería');
+        $this->mail->isHTML(true);
+        $this->mail->CharSet = 'UTF-8';
     }
 
-    public function enviarConfirmacion()
+    public function send($to, $subject, $body, $opc)
     {
-        $nombre = $this->body['nombre'];
-        $token = $this->body['token'];
-        // create a new object
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4f4b5e29cde87b';
-        $mail->Password = '49f982815fa101';
+        switch ($opc) {
+            case 1:
+                $bodyMessage = $this->contenidoConfirmacionCuenta($body);
+                break;
+            case 2:
+                $bodyMessage = $this->contenidoRestablecerPassword($body);
+                break;
+            case 3:
+                $bodyMessage = $this->contenidoConfirmacionCIta($body);
+                break;
+            case 4:
+                $bodyMessage = $this->contenidoFormularioContacto($body);
+                $this->mail->setFrom($body['email']); //TODO: Cambiar el nombre del remitente
+                break;
 
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
-        $mail->Subject = 'Confirma tu Cuenta';
+            default:
+                $bodyMessage = '';
+                break;
+        }
+        try {
+            $this->mail->addAddress($to);
+            $this->mail->Subject = $subject;
+            $this->mail->Body = $bodyMessage;
+            $this->mail->send();
+            echo 'El mensaje ha sido enviado correctamente, gracias por contactarnos'; //TODO: no debe mostrarse en todas las situaciones
+        } catch (Exception $e) {
+            echo "Error al enviar el email: {$this->mail->ErrorInfo}";
+        }
+    }
 
-        // Set HTML
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
-
+    private function contenidoConfirmacionCuenta($body)
+    {
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $nombre .  "</strong>, gracias por registrarte en AppSalón, para confirmar tu cuenta pincha en el siguiente enlace:</p>";
-        $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $token . "'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, gracias por registrarte en <strong>Blue Velvet peluqueria</strong>, para confirmar tu cuenta pincha en el siguiente enlace:</p>";
+        $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $body['token'] . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Te esperamos en nuestra web!!</p>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
-        $mail->Body = $contenido;
 
-        //Enviar el mail
-        $mail->send();
+        return $contenido;
     }
-
-    public function enviarInstrucciones()
+    private function contenidoRestablecerPassword($body)
     {
-        $nombre = $this->body['nombre'];
-        $token = $this->body['token'];
-        // create a new object
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4f4b5e29cde87b';
-        $mail->Password = '49f982815fa101';
-
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
-        $mail->Subject = 'Reestablece tu password';
-
-        // Set HTML
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
-
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " .  $nombre .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $token . "'>Reestablecer contraseña</a>";
+        $contenido .= "<p><strong>Hola " .  $body['nombre'] .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $body['token'] . "'>Reestablecer contraseña</a>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
-        $mail->Body = $contenido;
-
-        //Enviar el mail
-        $mail->send();
+        return $contenido;
     }
-    public function enviarConfirmacionCita()
+    private function contenidoConfirmacionCIta($body)
     {
-        $nombre = $this->body['nombre'];
-        $fecha = $this->body['fecha'];
-        $hora = $this->body['hora'];
-        // create a new object
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4f4b5e29cde87b';
-        $mail->Password = '49f982815fa101';
-
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
-        $mail->Subject = 'Confirmacion de cita';
-
-        // Set HTML
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $nombre .  "</strong>, tu cita para AppSalon está programada para el dia:</p>";
-        $contenido .= "<p><strong>" . $fecha . "</strong> a las <strong>" . $hora . "</strong> horas.</p>";
+        $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, tu cita para Blue Velvet Peluquería está programada para el dia:</p>";
+        $contenido .= "<p><strong>" . $body['fecha'] . "</strong> a las <strong>" . $body['hora'] . "</strong> horas.</p>";
         $contenido .= "<p>Si necesitas cambiar tu cita, llamanos al 90456897. Por favor, ten en cuenta nuestras políticas de cancelación en <a href='http://appSalon.com'>appSalon.com</a></p>";
         $contenido .= "<p>Gracias. ¡Esperamos verte pronto!</p>";
         $contenido .= '</html>';
-        $mail->Body = $contenido;
-
-        //Enviar el mail
-        $mail->send();
+        return $contenido;
     }
-    public function enviarFormularioContacto()
+    private function contenidoFormularioContacto($body)
     {
-        $nombre = $this->body['nombre'];
-        $email = $this->body['email'];
-        $asunto= $this->body['asunto'];
-        $mensaje = $this->body['mensaje'];
-        // create a new object
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4f4b5e29cde87b';
-        $mail->Password = '49f982815fa101';
 
-        $mail->setFrom($email);
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
-        $mail->Subject = 'Formulario de contacto';
-
-        // Set HTML
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
+        $nombreContacto = $body['nombre'];
+        $emailConacto = $body['email'];
+        $asuntoContacto = $body['asunto'];
+        $mensajeContacto = $body['mensaje'];
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>De: " . $nombre .  "</strong>, <a href='mailto: $email'>$email</a></p>";
-        $contenido .= "<p><strong>Asunto:</strong> $asunto</p>";
+        $contenido .= "<p><strong>De: " .   $nombreContacto .  "</strong>, <a href='mailto: $emailConacto'>$emailConacto</a></p>";
+        $contenido .= "<p><strong>Asunto:</strong> $asuntoContacto</p>";
         $contenido .= "<p><strong>Cuerpo del mensaje:</strong></p>";
-        $contenido .= "<p>$mensaje</p>";
-        $contenido .= "<p>Este mensaje se ha enviado desde el formulario de contacto de AppSalon.</p>";
+        $contenido .= "<p>$mensajeContacto</p>";
+        $contenido .= "<p>Este mensaje se ha enviado desde el formulario de contacto de Blue Velvet Peluquería.</p>";
         $contenido .= '</html>';
-        $mail->Body = $contenido;
-
-        //Enviar el mail
-        $mail->send();
-        // $respuesta='Mensaje enviado';
+        return $contenido;
     }
 }
