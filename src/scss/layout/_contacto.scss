@@ -5,109 +5,25 @@ $bk1: 700px;
 // .nombre-pagina{
 //     margin: 0;
 // }
+.info_empresa {
+
+    ul {
+        list-style: none;
+
+        li {
+            margin-bottom: 10px;
+            i{
+                margin-right: 10px;
+            }
+        }
+    }
+    @include m.telefono{
+        font-size: 1.3rem;
+    }
+}
+
 textarea {
     width: 100%;
     resize: none;
     border-radius: 1rem;
 }
-
-
-/*
-
-
-
-.contenedor {
-    max-width: 1170px;
-    margin: 0 auto 1rem;
-    padding: 1.5rem;
-}
-
-.wrapper {
-    box-shadow: 0 0 20px 0 rgba(v.$gris, .7);
-    border-radius: 5px;
-
-    @media screen and(min-width: $bk1) {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
-}
-
-.servicios {
-    list-style: none;
-    text-align: center;
-
-    @media screen and(min-width: $bk1) {
-        text-align: left;
-    }
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.info-empresa {
-    padding: 1rem;
-    background-color: lighten(v.$gris, 50%);
-
-    h3 {
-        @media screen and(min-width: $bk1) {
-            text-align: left;
-            margin-bottom: 0.5rem;
-        }
-
-        text-align: center;
-    }
-}
-
-.contacto {
-    padding: 1rem;
-    background-color: lighten(v.$blanco, 60%);
-
-    h3 {
-        margin-bottom: 1rem;
-    }
-}
-
-.formulario {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1.25rem;
-
-    label {
-        display: block;
-    }
-
-    button,
-    input,
-    textarea {
-        width: 100%;
-        padding: 1rem;
-        border: 1px solid lighten(v.$blanco, 50%);
-    }
-
-    textarea {
-        resize: none;
-    }
-}
-
-.full {
-    grid-column: 1 / 3;
-}
-
-.boton-enviar {
-    background-color: lighten(v.$blanco, 50%);
-    border: none;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-
-    &:focus,
-    &:hover {
-        background-color: v.$blanco;
-        color: #fff;
-        outline: 0;
-        transition: background-color 2s ease-out;
-    }
-}*/

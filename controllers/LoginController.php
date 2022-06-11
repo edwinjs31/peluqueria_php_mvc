@@ -91,7 +91,7 @@ class LoginController
                     $email->send($usuario->email, $subject, $body, REESTABLECER_PASSWORD);
 
                     // Alerta de exito
-                    Usuario::setAlerta('exito', 'Revisa tu email y sigue las instrucciones para reestablecer tu contraseña');
+                    Usuario::setAlerta('exito', 'Revisa tu email y sigue las instrucciones para reestablecer tu contraseña...');
                 } else {
                     Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado');
                 }
@@ -217,7 +217,7 @@ class LoginController
             $usuario->confirmado = "1";
             $usuario->token = null;
             $usuario->guardar();
-            Usuario::setAlerta('exito', 'Cuenta confirmada, puedes iniciar sesión');
+            Usuario::setAlerta('exito', 'Cuenta confirmada, puedes iniciar sesión...');
         }
 
         // Obtener alertas

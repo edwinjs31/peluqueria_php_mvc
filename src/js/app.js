@@ -356,14 +356,11 @@ async function reservarCita() {
             Swal.fire({
                 icon: 'success',
                 title: 'Cita creada correctamente',
-                text: "La cita se ha creado correctamente, te enviaremos un correo de confirmación",
+                text: 'La cita se ha creado correctamente, te enviaremos un correo de confirmación',
                 showConfirmButton: false,
                 timer: 2500,
             }).then(() => {
                 window.location.reload();
-                // setTimeout(() => {
-                //     window.location.reload();
-                // }, 3000);
             });
         } else {
             Swal.fire({

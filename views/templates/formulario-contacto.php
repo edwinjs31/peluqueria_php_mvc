@@ -1,10 +1,11 @@
-<h1 class="nombre-pagina">Contacto</h1>
+<h1 class="nombre-pagina">Información general</h1>
 
-<div class="info-empresa">
-    <ul class="servicios">
-        <li><i class="fa fa-map-marker"></i> Calle Constitución </li>
-        <li><i class="fa fa-mobile"></i> 555 555 000</li>
-        <li><i class="fa fa-envelope"></i> info@empresa.com</li>
+<div class="info_empresa">
+    <ul class="">
+        <li><i class="fa fa-map-marker"></i> Av. Constitución 14, 30550 Abarán-Murcia </li>
+        <li><i class="fa fa-mobile"></i> 961 664 030</li>
+        <li><i class="fa-brands fa-whatsapp"></i> 686 045 069</li>
+        <li><i class="fa fa-envelope"></i> bluevelvetpeluqueria@gmail.com</li>
         <li></li>
     </ul>
 </div>

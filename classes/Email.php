@@ -40,7 +40,10 @@ class Email
                 break;
             case 4:
                 $bodyMessage = $this->contenidoFormularioContacto($body);
-                $this->mail->setFrom($body['email']); //TODO: Cambiar el nombre del remitente
+                $this->mail->setFrom($body['email']);
+                break;
+            case 5:
+                $bodyMessage = $this->contenidoCancelacionCIta($body);
                 break;
 
             default:
@@ -60,9 +63,11 @@ class Email
     private function contenidoConfirmacionCuenta($body)
     {
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, gracias por registrarte en <strong>Blue Velvet peluqueria</strong>, para confirmar tu cuenta pincha en el siguiente enlace:</p>";
+        $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, gracias por registrarte en <strong>Blue Velvet peluqueria</strong>, para confirmar tu cuenta continúa en el siguiente enlace:</p>";
         $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $body['token'] . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Te esperamos en nuestra web!!</p>";
+        $contenido .= "<br>";
+        $contenido .= "<br>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
 
@@ -71,19 +76,23 @@ class Email
     private function contenidoRestablecerPassword($body)
     {
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " .  $body['nombre'] .  "</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace:</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $body['token'] . "'>Reestablecer contraseña</a>";
+        $contenido .= "<p><strong>Hola " .  $body['nombre'] .  "</strong> Has solicitado restablecer tu contraseña, sigue el siguiente enlace:</p>";
+        $contenido .= "<p><a href='http://localhost:3000/recuperar?token=" . $body['token'] . "'>Reestablecer contraseña</a></p>";
+        $contenido .= "<br>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
         return $contenido;
     }
     private function contenidoConfirmacionCIta($body)
     {
+        $emailDominio = $_ENV['MAIL_USERNAME'];
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, tu cita para Blue Velvet Peluquería está programada para el dia:</p>";
         $contenido .= "<p><strong>" . $body['fecha'] . "</strong> a las <strong>" . $body['hora'] . "</strong> horas.</p>";
-        $contenido .= "<p>Si necesitas cambiar tu cita, llamanos al 90456897. Por favor, ten en cuenta nuestras políticas de cancelación en <a href='http://appSalon.com'>appSalon.com</a></p>";
+        $contenido .= "<o>Si necesitas cambiar tu cita, llamanos al 961 664 030, contáctanos a través de nuestra web o a través del correo electrónico: <a href='mailto: $emailDominio'>$emailDominio</a></p>";
+        $contenido .= "<p>Por favor, ten en cuenta nuestras políticas de cancelación.</p>";
+        $contenido .= "<br>";
         $contenido .= "<p>Gracias. ¡Esperamos verte pronto!</p>";
         $contenido .= '</html>';
         return $contenido;
@@ -99,9 +108,23 @@ class Email
         $contenido = '<html>';
         $contenido .= "<p><strong>De: " .   $nombreContacto .  "</strong>, <a href='mailto: $emailConacto'>$emailConacto</a></p>";
         $contenido .= "<p><strong>Asunto:</strong> $asuntoContacto</p>";
-        $contenido .= "<p><strong>Cuerpo del mensaje:</strong></p>";
+        $contenido .= "<p><strong>Mensaje:</strong></p>";
         $contenido .= "<p>$mensajeContacto</p>";
+        $contenido .= "<br>";
         $contenido .= "<p>Este mensaje se ha enviado desde el formulario de contacto de Blue Velvet Peluquería.</p>";
+        $contenido .= '</html>';
+        return $contenido;
+    }
+    private function contenidoCancelacionCIta($body)
+    {
+        $emailDominio = $_ENV['MAIL_USERNAME'];
+
+        $contenido = '<html>';
+        $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, tu cita para Blue Velvet Peluquería de fecha:</p>";
+        $contenido .= "<p><strong>" . $body['fecha'] . "</strong> y hora: <strong>" . $body['hora'] . "</strong>, ha dido cancelada.</p>";
+        $contenido .= "<p> Puede volver a recervarla a través de nuestra web</p>";
+        $contenido .= "<br>";
+        $contenido .= "<p>Gracias. ¡Para cualquier información no dude en contactar con nosotros!</p>";
         $contenido .= '</html>';
         return $contenido;
     }

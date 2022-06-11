@@ -29,9 +29,7 @@ class APIController
 
             $id = $resultado['id'];
 
-
             // Almacena la Cita y el Servicio
-
             // Almacena los Servicios con el ID de la Cita
             $idServicios = explode(",", $_POST['servicios']);
             foreach ($idServicios as $idServicio) {
@@ -63,12 +61,26 @@ class APIController
 
     public static function eliminar()
     {
+        define('ELIMINAR_CITA', 5);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $cita = Cita::find($id);
             $cita->eliminar();
+            //enviar email de cancelacion
+            $usuario = Usuario::find($cita->usuario_id);
+            $email = new Email();
+            $subject = "Cancelación cita";
+            $body = [
+                'nombre' => $usuario->nombre,
+                'fecha' => $cita->fecha,
+                'hora' => $cita->hora,
+            ];
+            $email->send($usuario->email, $subject, $body, ELIMINAR_CITA);
+            
+
             header('Location:' . $_SERVER['HTTP_REFERER']);
+
         }
     }
 }

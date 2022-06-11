@@ -1,4 +1,4 @@
-<h1 class="nombre-pagina">Crear Nueva Cita</h1>
+<h1 class="nombre-pagina">Crear nueva cita</h1>
 <p class="descripcion-pagina">Elige tus servicios y rellena los datos requeridos</p>
 
 <?php 
@@ -22,8 +22,8 @@
         <p class="text-center">Abierto de lunes a viernes:</p>
         <p class="text-center">Mañana: 09:00 - 14:00</p>
         <p class="text-center">Tarde: 17:30 - 20:00</p>
-        <p class="text-center">Sabados: 09:00 - 14:00</p>
-        <h4 class="text-center descripcion-pagina">Completa con la fecha y hora de tu cita:</h4>
+        <p class="text-center">Sabados: 09:00 - 14:00</p><br>
+        <h4 class="text-center descripcion-pagina">** Para calcelar o modificar una cita, contácta con nosotros.</h4>
 
         <form class="formulario">
             <div class="campo">

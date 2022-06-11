@@ -55,7 +55,7 @@ class Usuario extends ActiveRecord
 
         return self::$alertas;
     }
-    //TODO: Validar el email con RegEx
+    
     public function validarEmail()
     {
         if (!$this->email) {

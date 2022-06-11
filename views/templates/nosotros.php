@@ -71,7 +71,7 @@
     <div class="citas-info">
         <h1>CITAS</h1>
         <p class="texto-nosotros">
-            Para reservar una cita, regístrate o llama al teléfono <span class="telefono-salon">958 060 060</span> o escribe a nuestro correo electrónico <a href="/contacto">aquí</a> y le responderemos a la brevedad.
+            Para reservar una cita, es muy sencillo, <a href="/crear-cuenta">regístrate</a> y crea una nueva cita o llama al teléfono <b>961 664 030</b> o envíanos un  <a href="/contacto">correo electrónico</a> y le responderemos a la brevedad.
         </p>
     </div>
     <div class="footer">
@@ -83,8 +83,10 @@
             <p>Abarán, Murcia</p>
             <p>30550</p>
             <p><i class="fa fa-mobile"></i> Teléfono: 961 664 030</p>
+            <p><i class="fa-brands fa-whatsapp"></i> 686 045 069</p>
+
             <p><i class="fa fa-envelope"></i> Email: <a target="blank" href="mailto:
-                bluevelvet@gmail.com">bluevelvet@gmail.com</a></p>
+            bluevelvetpeluqueria@gmail.com">bluevelvetpeluqueria@gmail.com</a></p>
 
             </p>
         </div>

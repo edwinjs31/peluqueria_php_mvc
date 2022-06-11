@@ -30,7 +30,6 @@ if (count($citas) === 0) {
                 $total = 0;
         ?>
                 <li>
-                    <p>ID: <span><?php echo $cita->id; ?></span></p>
                     <p>Hora: <span><?php echo $cita->hora; ?></span></p>
                     <p>Cliente: <span><?php echo $cita->cliente; ?></span></p>
                     <p>Email: <span><?php echo $cita->email; ?></span></p>

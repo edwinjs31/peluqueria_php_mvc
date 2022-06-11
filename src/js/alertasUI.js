@@ -36,7 +36,6 @@ function confirmacionEliminarServicio() {
     }
 }
 
-//Sin implementar
 function actualizarServicio() {
     const btnActualizarServicio = document.getElementById('btn-actualizar-servicio');
 
