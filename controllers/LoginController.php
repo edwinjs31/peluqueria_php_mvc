@@ -83,7 +83,7 @@ class LoginController
 
                     //  Enviar el email
                     $email = new Email();
-                    $subject = 'Reestablece tu password';
+                    $subject = 'Reestablecer password';
                     $body = [
                         'nombre' => $usuario->nombre,
                         'token' => $usuario->token
@@ -91,7 +91,7 @@ class LoginController
                     $email->send($usuario->email, $subject, $body, REESTABLECER_PASSWORD);
 
                     // Alerta de exito
-                    Usuario::setAlerta('exito', 'Revisa tu email, te hemos enviado las instrucciones para reestablecer tu contraseña');
+                    Usuario::setAlerta('exito', 'Revisa tu email y sigue las instrucciones para reestablecer tu contraseña');
                 } else {
                     Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado');
                 }

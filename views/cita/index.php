@@ -19,7 +19,9 @@
     </div>
     <div id="paso-2" class="seccion">
         <h2>Datos - Cita</h2>
-        <p class="text-center">L-V: 09:00 - 14:00  y  17:30 - 20:00</p>
+        <p class="text-center">Abierto de lunes a viernes:</p>
+        <p class="text-center">Mañana: 09:00 - 14:00</p>
+        <p class="text-center">Tarde: 17:30 - 20:00</p>
         <p class="text-center">Sabados: 09:00 - 14:00</p>
         <h4 class="text-center descripcion-pagina">Completa con la fecha y hora de tu cita:</h4>
 

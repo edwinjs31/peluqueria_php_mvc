@@ -8,6 +8,7 @@
     @include m.telefono {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
         margin: 0;
     }
 
@@ -33,13 +34,16 @@
         text-align: center;
         // padding: calc(v.$separacion / 2) calc(v.$separacion / 2);
         transition: color 300ms ease;
-        color: v.$azul;
+        color: v.$blanco;
 
         &:hover {
-            color: v.$fucsia;
+            color: v.$azul;
 
         }
 
+    }
+    .enlaces_auth{
+        color: v.$fucsia;
     }
 
 }
