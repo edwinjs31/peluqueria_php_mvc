@@ -2,6 +2,7 @@
 
 namespace Classes;
 
+use Model\Contacto;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -40,7 +41,6 @@ class Email
                 break;
             case 4:
                 $bodyMessage = $this->contenidoFormularioContacto($body);
-                $this->mail->setFrom($body['email']);
                 break;
             case 5:
                 $bodyMessage = $this->contenidoCancelacionCIta($body);
@@ -51,12 +51,18 @@ class Email
                 break;
         }
         try {
+            if ($opc == 4) {
+                $this->mail->setFrom($body['email']);
+            }
             $this->mail->addAddress($to);
             $this->mail->Subject = $subject;
             $this->mail->Body = $bodyMessage;
             $this->mail->send();
+            if ($opc == 4) {
+                Contacto::setAlerta('exito', 'Gracias por contactar con nosotros, en breve nos pondremos en contacto.');
+            }
         } catch (Exception $e) {
-            echo "Error al enviar el email: {$this->mail->ErrorInfo}";
+            Contacto::setAlerta("error", "Error al enviar el email: {$this->mail->ErrorInfo}");
         }
     }
 
@@ -117,7 +123,6 @@ class Email
     }
     private function contenidoCancelacionCIta($body)
     {
-        $emailDominio = $_ENV['MAIL_USERNAME'];
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, tu cita para Blue Velvet Peluquería de fecha:</p>";

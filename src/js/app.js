@@ -358,7 +358,7 @@ async function reservarCita() {
                 title: 'Cita creada correctamente',
                 text: 'La cita se ha creado correctamente, te enviaremos un correo de confirmación',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 2000,
             }).then(() => {
                 window.location.reload();
             });

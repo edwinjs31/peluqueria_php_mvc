@@ -1,6 +1,9 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
+.nombre-salon{
+    font-weight: bold;
+}
 .separador {
     border-color: v.$azul;
     border-width: 2px;
@@ -27,7 +30,7 @@
         /* IE10 */
         flex: 70%;
         // background-color: white;
-        padding: 20px;
+        // padding: 20px;
 
         .image-container {
 
@@ -110,6 +113,7 @@
             font-style: italic;
 
         }
+        
 
 
     }

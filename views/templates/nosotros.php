@@ -53,25 +53,26 @@
     <div class="row">
         <h1>QUE OFRECEMOS</h1>
         <ul class="lista_servicios">
-            <li>Corte de pelo máquina -- 16,00</li>
-            <li>Corte de pelo tijera, lavado y secado -- 17,50</li>
-            <li>Corte de pelo navaja -- 23,00</li>
-            <li>Lavar, peinar y secar -- 10,00</li>
-            <li>Arreglo de barba -- 12,50</li>
-            <li>Arreglo de bigote con afeitado -- 6,50</li>
-            <li>Arreglo de barba con afeitado -- 17,50</li>
-            <li>Afeitado con masaje -- 17,50</li>
-            <li>Afeitado con mascarilla y masaje -- 30,00</li>
-            <li>Quemado de puntas -- 6,00</li>
-            <li>Tinte, matizador o color -- 19,00</li>
-            <li>Servicio a domicilio -- 40,00</li>
+            <li>Corte de pelo máquina: 16,00€</li>
+            <li>Corte de pelo tijera, lavado y secado: 17,50€</li>
+            <li>Corte de pelo navaja: 23,00€</li>
+            <li>Lavar, peinar y secar: 10,00€</li>
+            <li>Arreglo de barba: 12,50€</li>
+            <li>Arreglo de bigote con afeitado: 6,50€</li>
+            <li>Arreglo de barba con afeitado: 17,50€</li>
+            <li>Afeitado con masaje: 17,50€</li>
+            <li>Afeitado con mascarilla y masaje: 30,00€</li>
+            <li>Quemado de puntas: 6,00€</li>
+            <li>Tinte, matizador o color: 19,00€</li>
+            <li>Servicio a domicilio: 40,00€</li>
         </ul>
     </div>
     <hr class="separador">
     <div class="citas-info">
         <h1>CITAS</h1>
         <p class="texto-nosotros">
-            Para reservar una cita, es muy sencillo, <a href="/crear-cuenta">regístrate</a> y crea una nueva cita o llama al teléfono <b>961 664 030</b> o envíanos un  <a href="/contacto">correo electrónico</a> y le responderemos a la brevedad.
+            Puedes elegir los servicios que necesites y reservar una cita para la hora que prefieras, y es muy sencillo, solo tienes que <a href="/crear-cuenta">regístrate</a> para crear una nueva cita o llama al teléfono <b>961 664 030</b> o envíanos un  <a target="blank" href="mailto:
+            bluevelvetpeluqueria@gmail.com">correo electrónico</a> y le responderemos a la brevedad.
         </p>
     </div>
     <div class="footer">

@@ -14,7 +14,7 @@
 include_once __DIR__ . "/../templates/alertas.php";
 ?>
 
-<form class="formulario" accept-charset="utf-8" method="POST" action="/formulario-contacto" enctype="multipart/form-data">
+<form class="formulario" accept-charset="utf-8" method="POST" action="/formulario-contacto" enctype="multipart/form-data" autocomplete="off">
 
     <div class="campo">
         <label for="nombre">Nombre</label>
@@ -37,6 +37,5 @@ include_once __DIR__ . "/../templates/alertas.php";
     </div>
 
     <input type="submit" value="Enviar" class="boton">
-
 
 </form>
