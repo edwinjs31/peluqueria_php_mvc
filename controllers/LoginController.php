@@ -209,13 +209,16 @@ class LoginController
         $token = s($_GET['token']);
         $usuario = Usuario::where('token', $token);
 
-        if (empty($usuario)) {
+        // if (empty($usuario)) {
+        if (empty($usuario) || $usuario->token==='') {
             // Mostrar mensaje de error
             Usuario::setAlerta('error', 'Token No Válido');
         } else {
             // Modificar a usuario confirmado
             $usuario->confirmado = "1";
-            $usuario->token = null;
+            // Borrar el token
+            // $usuario->token = null;
+            $usuario->token = '';
             $usuario->guardar();
             Usuario::setAlerta('exito', 'Cuenta confirmada, puedes iniciar sesión...');
         }

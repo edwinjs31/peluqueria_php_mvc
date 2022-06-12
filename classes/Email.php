@@ -70,7 +70,7 @@ class Email
     {
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $body['nombre'] .  "</strong>, gracias por registrarte en <strong>Blue Velvet peluqueria</strong>, para confirmar tu cuenta continúa en el siguiente enlace:</p>";
-        $contenido .= "<p><a href='http://localhost:3000/confirmar-cuenta?token=" . $body['token'] . "'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p><a href='https://bluevelvet.herokuapp.com/confirmar-cuenta?token=" . $body['token'] . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Te esperamos en nuestra web!!</p>";
         $contenido .= "<br>";
         $contenido .= "<br>";
@@ -83,7 +83,7 @@ class Email
     {
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " .  $body['nombre'] .  "</strong> Has solicitado restablecer tu contraseña, sigue el siguiente enlace:</p>";
-        $contenido .= "<p><a href='http://localhost:3000/recuperar?token=" . $body['token'] . "'>Reestablecer contraseña</a></p>";
+        $contenido .= "<p><a href='https://bluevelvet.herokuapp.com/recuperar?token=" . $body['token'] . "'>Reestablecer contraseña</a></p>";
         $contenido .= "<br>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         $contenido .= '</html>';
