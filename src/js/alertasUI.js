@@ -15,7 +15,7 @@ function confirmacionEliminarCitaServicio() {
         boton.addEventListener('click', function (e) {
             e.preventDefault();
             const form = e.target.form;
-            title = '¿Está seguro de eliminar?';
+            title = 'Va eliminar ¿Está seguro?';
             icon = 'warning';
             confirmacionModal(title, icon, form);
         });
