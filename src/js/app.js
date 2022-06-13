@@ -111,7 +111,7 @@ function paginaSiguiente() {
 }
 async function consultarAPI() {
     try {
-        // const url = 'http://localhost:3000/api/servicios';
+         //const url = 'http://localhost:3000/api/servicios';
         const url = 'https://bluevelvet.herokuapp.com/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
@@ -327,7 +327,6 @@ async function reservarCita() {
     const { fecha, hora, servicios, id } = cita;
 
     const idServicios = servicios.map((servicio) => servicio.id);
-    //console.log(idServicios);
 
     const datos = new FormData();
 
@@ -335,8 +334,6 @@ async function reservarCita() {
     datos.append('hora', hora);
     datos.append('usuario_id', id);
     datos.append('servicios', idServicios);
-
-    //console.log([...datos]);
 
     try {
         // Petición hacia la api
@@ -380,5 +377,4 @@ async function reservarCita() {
         });
     }
 
-    // console.log([...datos]);
 }

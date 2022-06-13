@@ -22,8 +22,7 @@
         <p class="text-center">Abierto de lunes a viernes:</p>
         <p class="text-center">Mañana: 09:00 - 14:00</p>
         <p class="text-center">Tarde: 17:30 - 20:00</p>
-        <p class="text-center">Sabados: 09:00 - 14:00</p><br>
-        <h4 class="text-center descripcion-pagina">** Para calcelar o modificar una cita, contácta con nosotros.</h4>
+        <h4 class="text-center descripcion-pagina">** En caso de calcelar o modificar una cita activa, ponte en contacto con nosotros.</h4>
 
         <form class="formulario">
             <div class="campo">

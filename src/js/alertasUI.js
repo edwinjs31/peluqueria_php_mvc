@@ -3,37 +3,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function iniciar() {
-    confirmacionEliminarCita();
+    confirmacionEliminarCitaServicio();
     confirmacionEliminarServicio();
     actualizarServicio();
     guardarServicio();
 }
 
-function confirmacionEliminarCita() {
+function confirmacionEliminarCitaServicio() {
     const botones = document.querySelectorAll('.boton-eliminar');
     botones.forEach(function (boton) {
         boton.addEventListener('click', function (e) {
             e.preventDefault();
             const form = e.target.form;
-            title = 'Se borrará la cita, está seguro?';
+            title = '¿Está seguro de eliminar?';
             icon = 'warning';
             confirmacionModal(title, icon, form);
         });
     });
-}
-
-function confirmacionEliminarServicio() {
-    const btnEliminarServicio = document.getElementById('btn-aliminar-servicio');
-
-    if (btnEliminarServicio) {
-        btnEliminarServicio.addEventListener('click', function (e) {
-            e.preventDefault();
-            const form = e.target.form;
-            title = 'Se borrará el servicio, está seguro?';
-            icon = 'warning';
-            confirmacionModal(title, icon, form);
-        });
-    }
 }
 
 function actualizarServicio() {
